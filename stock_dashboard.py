@@ -40,7 +40,7 @@ def get_chart_result(from_coin: str, to_coin: str, model_file: str):
 
 
 
-    targets = df[target_col][window_len:]
+    targets = df[target_col][window_len-1:-1]
 
 
 
@@ -84,7 +84,7 @@ def show_chart(title: str, actual, pred):
                 )
 
 
-actual_btc, pred_btc = get_chart_result(from_coin='BTC', to_coin='USD', model_file="crypto_model.h5")
+actual_btc, pred_btc = get_chart_result(from_coin='BTC', to_coin='USD', model_file="crypto_btc_model.h5")
 actual_eth, pred_eth = get_chart_result(from_coin='ETH', to_coin='USD', model_file="crypto_eth_model.h5")
 actual_ada, pred_ada = get_chart_result(from_coin='ADA', to_coin='USD', model_file="crypto_ada_model.h5")
 
